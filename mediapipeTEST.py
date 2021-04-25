@@ -94,7 +94,7 @@ with mp_hands.Hands( # with-statement ensures we handle possible exceptions thro
       # move the mouse
       mouseX_offset = window_size_x * middle_finger_posX * 2 #It's the multiplication of 2 that makes the program able to reach the outer sides of the screen 
       mouseY_offset = window_size_y * middle_finger_posY * 2 
-      # NOTE.: we create a mouse offset since pyAutoGui and MediaPipe perceives the screen size differently.
+      # Note: we create a mouse offset since pyAutoGui and MediaPipe perceives the screen size differently.
      
       middle_finger_mcp_posX = middle_finger_posX * mouseX_offset 
       middle_finger_mcp_posY = middle_finger_posY * mouseY_offset
@@ -146,12 +146,17 @@ with mp_hands.Hands( # with-statement ensures we handle possible exceptions thro
               pyautogui.write(MyText) 
               pyautogui.press('backspace', presses=6) #or 7 if said at the end of a sentence.
               pyautogui.press('.')
-              
+
             # Had to use "questionpoint", instead of "question mark" as that word is predetermined to always be "_" because pyautogui is made based on american keyboard layout and cant be changed.
             elif 'questionpoint' in MyText or 'question point ' in MyText:
               pyautogui.write(MyText)
-              pyautogui.press('backspace', presses=14) #or 13 if said after the end of a sentence.
+              pyautogui.press('backspace', presses=14)
               pyautogui.hotkey("shift","-") # American keyboard layout: _ = ?
+
+            elif 'exclamation mark' in MyText:
+              pyautogui.write(MyText)
+              pyautogui.press('backspace', presses=17)
+              pyautogui.press("!")
 
             else: # else write what was detected
               pyautogui.write(MyText)
