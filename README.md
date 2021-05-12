@@ -51,3 +51,4 @@ Commands you can use to type a symbol:
     "Period":            Puts a dot at the end of the sentence.
     
     "Exclamation Mark":  Puts an exclamation mark at the end of the sentence.
+    
